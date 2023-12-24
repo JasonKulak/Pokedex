@@ -1,8 +1,9 @@
 const express = require("express")
-const app = express()
+
 const pokemon = require("./models/pokemon.js")
+//let sortedPokemon = pokemon.sort()
 
-
+const app = express()
 
 //ROUTES - INDUCES
 
@@ -16,9 +17,12 @@ app.get("/pokemon", (req, res) => {
 })
 
 //SHOW
-// app.get("/:id", (req, res) => {
-//     res.render("show.ejs", { data: Pokemon[req.params.id] })
-// })
+app.get("/pokemon/:id", (req, res) => {
+    const id = req.params.id
+    const pokemons = pokemon[id]
+    
+    res.render("show.ejs", { pokemons })
+})
 
 
 
