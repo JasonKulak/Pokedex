@@ -1,6 +1,6 @@
 const express = require("express")
 const app = express()
-//const Pokemon = require("../models/pokemon.js")
+const pokemon = require("./models/pokemon.js")
 
 
 
@@ -11,9 +11,9 @@ app.get("/", (req, res) => {
 })
 
 //INDEX
-// app.get("/pokemon", (req, res) => {
-//     res.render("index.ejs", {Pokemon})
-// })
+app.get("/pokemon", (req, res) => {
+    res.render("index.ejs", {pokemon})
+})
 
 //SHOW
 // app.get("/:id", (req, res) => {
