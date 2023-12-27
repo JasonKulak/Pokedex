@@ -21,7 +21,7 @@ app.get("/pokemon/:id", (req, res) => {
     const id = req.params.id
     const pokemons = pokemon[id]
     
-    res.render("show.ejs", { pokemons })
+    res.render("show.ejs", {pokemons})
 })
 
 
