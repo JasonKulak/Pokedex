@@ -6,10 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Pokemon</h1>
+    <h2>Pokemon</h2>
 
-    <h2><%= pokemons.name %></h2>
+    <h1><%= pokemons.name %></h1>
 
     <img src=<%= pokemons.img %> >
+
+    <h3>Type:</h3>
+    <ul>
+        <% for (let i = 0; i < pokemons.type.length; i++){ %>
+
+        <li><%= pokemons.type[i] %></li>
+        <% } %>
+    </ul>
 </body>
 </html>
