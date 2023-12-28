@@ -6,8 +6,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Pokemon</h2>
-
     <h1><%= pokemons.name %></h1>
 
     <img src=<%= pokemons.img %> >
@@ -26,5 +24,6 @@
             <li><%= " Defense - " + pokemons.stats.defense %></li>
     </ul>
     <a href="/pokemon/:id/edit/<%= pokemons._id %>">Edit <%= pokemons.name %></a>
+    
 </body>
 </html>
