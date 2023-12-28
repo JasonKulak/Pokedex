@@ -1,11 +1,19 @@
+//Dependencies
+require("dotenv").config()
 const express = require("express")
+const morgan = require("morgan")
+const methodOverride = require("method-override")
 
 const pokemon = require("./models/pokemon.js")
 
-
+//Application Object
 const app = express()
 
-
+//Middleware
+app.use(morgan("dev"))
+app.use(methodOverride("method"))
+app.use(express.urlencoded({extended: true}))
+app.use("/static", express.static("public"))
 
 
 //ROUTES - INDUCES
@@ -46,5 +54,6 @@ app.get("/pokemon/:id/edit", (req, res) => {
 
 
 
-
-app.listen(3030, () => {console.log("Gotta catch em all")})
+//Server Listener
+const PORT = process.env.PORT || 3030
+app.listen(PORT, () => {console.log("Gotta catch em all")})
