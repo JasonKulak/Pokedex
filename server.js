@@ -36,6 +36,9 @@ app.get("/pokemon/:id", (req, res) => {
 })
 
 //NEW get
+app.get("/new", (req, res) => {
+    res.render("new.ejs")
+})
 
 //EDIT get
 app.get("/pokemon/:id/edit", (req, res) => {
@@ -43,6 +46,10 @@ app.get("/pokemon/:id/edit", (req, res) => {
 })
 
 //CREATE post
+app.post("/", async (req, res) => {
+    await pokemon.create(req.body).catch((error) => errorHandler(error, res))
+    res.redirect("/pokemon")
+})
 
 //UPDATE put
 
