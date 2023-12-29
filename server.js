@@ -54,6 +54,10 @@ app.post("/", async (req, res) => {
 //UPDATE put
 
 //DESTROY delete
+app.delete("/:id", async (req, res) => {
+    await pokemon.findByIdAndRemove(req.params.id)
+    res.redirect("/pokemon")
+})
 
 
 
