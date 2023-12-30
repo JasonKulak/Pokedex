@@ -19,10 +19,6 @@ app.use(express.static("public"))
 
 //ROUTES - INDUCES
 
-app.get("/", (req, res) => {
-    res.send("Gotta catch'em all!")
-})
-
 //INDEX get
 app.get("/pokemon", (req, res) => {
    //console.log("Hello Jason")
@@ -33,7 +29,7 @@ app.get("/pokemon", (req, res) => {
 app.get("/pokemon/:id", (req, res) => {
     const id = req.params.id
     const pokemon = Pokemon[id]
-    res.render("show.ejs", {pokemon})
+    res.render("show.ejs", {pokemon, id})
 })
 
 //NEW get
@@ -47,7 +43,7 @@ app.get("/pokemon/:id/edit", (req, res) => {
 })
 
 //CREATE post
-app.post("/", (req, res) => {
+app.post("/pokemon", (req, res) => {
     //pokemon.create(req.body).catch((error) => errorHandler(error, res))
     const body = req.body
     Pokemon.push(body)
@@ -57,10 +53,10 @@ app.post("/", (req, res) => {
 //UPDATE put
 
 //DESTROY delete
-app.delete("/pokemon", (req, res) => {
+app.delete("/pokemon/:id", (req, res) => {
     //let deletedPokedmon = Pokemon.findByIdAndDelete(req.params.id)
     const id = req.params.id
-    pokemon.splice(id, 1)
+    Pokemon.splice(id, 1)
     //console.log("code working")
     res.redirect("/pokemon")
 })
