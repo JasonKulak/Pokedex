@@ -57,10 +57,10 @@ app.post("/", (req, res) => {
 //UPDATE put
 
 //DESTROY delete
-app.delete("/pokemon/:id", (req, res) => {
+app.delete("/pokemon", (req, res) => {
     //let deletedPokedmon = Pokemon.findByIdAndDelete(req.params.id)
     const id = req.params.id
-    Pokemon.splice(id, 1)
+    pokemon.splice(id, 1)
     //console.log("code working")
     res.redirect("/pokemon")
 })

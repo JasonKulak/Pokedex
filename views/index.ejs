@@ -11,6 +11,9 @@
     <ul>
     <% for (let i = 0; i < pokemon.length; i++){ %>
        <a href="/pokemon/<%= i %>"><img src=<%= pokemon[i].img %> ></a>
+       <form action="/pokemon/<%= pokemon.id %>?_method=DELETE" method="post">
+            <input type="submit" value="delete">
+        </form>
     <% } %>
     </ul>
 </body>
