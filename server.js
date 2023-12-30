@@ -4,16 +4,17 @@ const express = require("express")
 const morgan = require("morgan")
 const methodOverride = require("method-override")
 
-const pokemon = require("./models/pokemon.js")
+const Pokemon = require("./models/pokemon.js")
 
 //Application Object
 const app = express()
 
 //Middleware
 app.use(morgan("dev"))
-app.use(methodOverride("method"))
+app.use(methodOverride("_method"))
 app.use(express.urlencoded({extended: true}))
-app.use("/static", express.static("public"))
+app.use(express.static("public"))
+
 
 
 //ROUTES - INDUCES
@@ -24,15 +25,15 @@ app.get("/", (req, res) => {
 
 //INDEX get
 app.get("/pokemon", (req, res) => {
-    //const sortedPokemon = pokemon.name.sort()
-    res.render("index.ejs", {pokemon})
+   //console.log("Hello Jason")
+    res.render("index.ejs", {data: Pokemon})
 })
 
 //SHOW get
 app.get("/pokemon/:id", (req, res) => {
     const id = req.params.id
-    const pokemons = pokemon[id]
-    res.render("show.ejs", {pokemons})
+    const pokemon = Pokemon[id]
+    res.render("show.ejs", {pokemon})
 })
 
 //NEW get
@@ -46,16 +47,21 @@ app.get("/pokemon/:id/edit", (req, res) => {
 })
 
 //CREATE post
-app.post("/", async (req, res) => {
-    await pokemon.create(req.body).catch((error) => errorHandler(error, res))
+app.post("/", (req, res) => {
+    //pokemon.create(req.body).catch((error) => errorHandler(error, res))
+    const body = req.body
+    Pokemon.push(body)
     res.redirect("/pokemon")
 })
 
 //UPDATE put
 
 //DESTROY delete
-app.delete("/:id", async (req, res) => {
-    await pokemon.findByIdAndRemove(req.params.id)
+app.delete("/pokemon/:id", (req, res) => {
+    //let deletedPokedmon = Pokemon.findByIdAndDelete(req.params.id)
+    const id = req.params.id
+    Pokemon.splice(id, 1)
+    //console.log("code working")
     res.redirect("/pokemon")
 })
 

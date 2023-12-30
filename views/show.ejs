@@ -6,28 +6,29 @@
     <title>Document</title>
 </head>
 <body>
-    <h1><%= pokemons.name %></h1>
-
-    <img src=<%= pokemons.img %> >
-
+    <h1><%= pokemon.name %></h1>
+    
+    <img src=<%= pokemon.img %> >
+    
     <h3>Type:</h3>
     <ul>
-        <% for (let i = 0; i < pokemons.type.length; i++){ %>
+        <% for (let i = 0; i < pokemon.type.length; i++){ %>
 
-        <li><%= pokemons.type[i] %></li>
+        <li><%= pokemon.type[i] %></li>
         <% } %>
     </ul>
     <h4>Stats:</h4>
     <ul>
-            <li><%= " HP - " + pokemons.stats.hp %></li>
-            <li><%= " Attack - " + pokemons.stats.attack  %></li>
-            <li><%= " Defense - " + pokemons.stats.defense %></li>
+        <li><%= " HP - " + pokemon.stats.hp %></li>
+        <li><%= " Attack - " + pokemon.stats.attack  %></li>
+        <li><%= " Defense - " + pokemon.stats.defense %></li>
     </ul>
-    <a href="/pokemon/:id/edit/<%= pokemons._id %>">Edit <%= pokemons.name %></a>
+    <a href="/pokemon/:id/edit/<%= pokemon.id %>">Edit <%= pokemon.name %></a>
     <a href="/pokemon/"><h4>BACK TO MAIN PAGE</h4></a>
-    <form action="/pokemon/<%= pokemons._id %>?_method=DELETE" method="post">
+    
+    <form action="/pokemon/<%= pokemon.id %>?_method=DELETE" method="post">
         <input type="submit" value="delete">
     </form>
-
+    
 </body>
 </html>
