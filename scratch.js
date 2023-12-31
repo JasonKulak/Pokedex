@@ -11,3 +11,4 @@
         <li><%= " Attack - " + pokemon.stats.attack  %></li>
         <li><%= " Defense - " + pokemon.stats.defense %></li>
     </ul>
+

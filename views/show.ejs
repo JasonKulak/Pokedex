@@ -6,12 +6,22 @@
     <title>Document</title>
 </head>
 <body>
+    <style type="text/css">
+        body {
+            color: royalblue;
+            background-color: yellow;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+    </style>
     <h1><%= pokemon.name %></h1>
     
     <img src="<%= pokemon.img %>" />
     
-    <!-- <a href="/pokemon/:id/edit/<%= pokemon.id %>">Edit <%= pokemon.name %></a> -->
-    <a href="/pokemon/"><h4>BACK TO MAIN PAGE</h4></a>
+    
+
+    
+    <a href="/pokemon/"><h4><button>BACK TO MAIN PAGE</button></h4></a>
     
 </body>
 </html>

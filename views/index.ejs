@@ -6,15 +6,22 @@
     <title>New Try</title>
 </head>
 <body>
+    <style type="text/css">
+        body {
+            color: yellow;
+            background-color: red;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+    </style>
     <h1>Gotta Catch 'em All</h1>
     <div>
-    <a href="/new">ADD A POKEMON</a>
+    <a href="/new"><button>ADD A POKEMON</button></a>
     </div>
     <div>
     <ul>
     <% for (let i = 0; i < pokemon.length; i++){ %>
        <a href="/pokemon/<%= i %>"><img src=<%= pokemon[i].img %> ></a>
-       <a href="/pokemon/<%= i %>/edit/">Edit <%= pokemon[i].name %></a>
+       <a href="/pokemon/<%= i %>/edit/"><button>Edit <%= pokemon[i].name %></button></a>
        <form action="/pokemon/<%= i %>?_method=DELETE" method="post">
             <input type="submit" value="delete">
         </form>
