@@ -14,6 +14,7 @@
     <ul>
     <% for (let i = 0; i < pokemon.length; i++){ %>
        <a href="/pokemon/<%= i %>"><img src=<%= pokemon[i].img %> ></a>
+       <a href="/pokemon/<%= i %>/edit/">Edit <%= pokemon[i].name %></a>
        <form action="/pokemon/<%= i %>?_method=DELETE" method="post">
             <input type="submit" value="delete">
         </form>

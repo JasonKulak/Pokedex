@@ -39,7 +39,10 @@ app.get("/new", (req, res) => {
 
 //EDIT get
 app.get("/pokemon/:id/edit", (req, res) => {
-    res.render("edit.ejs")
+    const id = req.params.id
+    const pokemon = Pokemon[id]
+    //console.log("edit me")
+    res.render("edit.ejs", {pokemon, id})
 })
 
 //CREATE post
@@ -51,6 +54,12 @@ app.post("/pokemon", (req, res) => {
 })
 
 //UPDATE put
+app.put("/pokemon/:id", (req, res) => {
+    const id = req.params.id
+    const body = req.body
+    Pokemon[id] = body
+    res.redirect("/pokemon")
+})
 
 //DESTROY delete
 app.delete("/pokemon/:id", (req, res) => {
